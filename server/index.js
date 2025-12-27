@@ -58,29 +58,79 @@ app.post('/api/auth/register', (req, res) => {
 });
 
 // Send OTP
-app.post('/api/auth/send-otp', (req, res) => {
-  const { phone } = req.body;
+app.post('/api/auth/send-otp', async (req, res) => {
+  const { phone, email } = req.body;
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
   global.otpStore = global.otpStore || {};
-  global.otpStore[phone] = { otp, expires: Date.now() + 300000 };
-  console.log(`📱 OTP for ${phone}: ${otp}`);
-  res.json({ message: 'OTP sent', otp, phone });
+  const key = phone || email;
+  global.otpStore[key] = { otp, expires: Date.now() + 300000 };
+  
+  console.log(`📱 OTP for ${key}: ${otp}`);
+  
+  // Try to send email if configured (FREE using Gmail)
+  let sent = false;
+  
+  if (email && process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
+    try {
+      const nodemailer = require('nodemailer');
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.GMAIL_USER,
+          pass: process.env.GMAIL_APP_PASSWORD
+        }
+      });
+      
+      await transporter.sendMail({
+        from: `"Thazema" <${process.env.GMAIL_USER}>`,
+        to: email,
+        subject: 'Your Thazema Verification Code',
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #0ea5e9;">Thazema Verification</h2>
+            <p>Your verification code is:</p>
+            <h1 style="color: #10b981; font-size: 48px; letter-spacing: 8px;">${otp}</h1>
+            <p>This code will expire in 5 minutes.</p>
+            <p style="color: #666; font-size: 12px;">If you didn't request this code, please ignore this email.</p>
+          </div>
+        `
+      });
+      sent = true;
+      console.log(`✅ OTP sent via email to ${email}`);
+    } catch (e) {
+      console.error('Email send failed:', e.message);
+    }
+  }
+  
+  // For development/testing, return OTP in response
+  if (!sent) {
+    console.log('⚠️ No email service configured - OTP shown in app for testing');
+    return res.json({ message: 'OTP generated', otp, key, dev: true });
+  }
+  
+  res.json({ message: 'OTP sent to your email', key });
 });
 
 // Verify OTP
 app.post('/api/auth/verify-otp', (req, res) => {
-  const { phone, otp } = req.body;
-  const stored = global.otpStore?.[phone];
+  const { phone, email, otp } = req.body;
+  const key = phone || email;
+  const stored = global.otpStore?.[key];
   
   if (!stored || stored.otp !== otp) {
     return res.status(400).json({ error: 'Invalid OTP' });
   }
   
-  delete global.otpStore[phone];
-  const token = jwt.sign({ userId: 'phone', phone }, JWT_SECRET, { expiresIn: '7d' });
+  if (stored.expires < Date.now()) {
+    delete global.otpStore[key];
+    return res.status(400).json({ error: 'OTP expired' });
+  }
+  
+  delete global.otpStore[key];
+  const token = jwt.sign({ userId: 'phone', phone, email }, JWT_SECRET, { expiresIn: '7d' });
   res.json({
     token,
-    user: { id: 'phone', username: `user_${phone.slice(-4)}`, phone, status: 'online' }
+    user: { id: 'phone', username: email ? email.split('@')[0] : `user_${phone?.slice(-4)}`, phone, email, status: 'online' }
   });
 });
 

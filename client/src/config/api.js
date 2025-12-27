@@ -11,7 +11,7 @@ const SERVER_CONFIG = {
   PORT: '5000',
   
   // For production - UPDATE THIS WITH YOUR RAILWAY/RENDER URL
-  PRODUCTION_URL: 'https://c32a2310719df4.lhr.life',
+  PRODUCTION_URL: 'https://thazema.onrender.com',
   
   // SET TO TRUE FOR PLAY STORE RELEASE
   USE_PRODUCTION: true
