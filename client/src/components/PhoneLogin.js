@@ -18,13 +18,19 @@ const PhoneLogin = ({ onSwitchToEmail }) => {
     try {
       const result = await loginWithPhone(phone);
       console.log('OTP sent successfully:', result);
+      
+      // If OTP is returned in response (dev mode), show it
+      if (result.otp && result.dev) {
+        setError(`✅ TEST MODE: Your OTP is ${result.otp} (Email not configured)`);
+      }
+      
       setStep('otp');
     } catch (err) {
       console.error('OTP Error:', err);
       if (err.code === 'ERR_NETWORK') {
-        setError('Cannot connect to server. Please ensure the application is running.');
+        setError('Cannot connect to server. Server may be sleeping - please wait 20 seconds and try again.');
       } else {
-        setError(err.response?.data?.error || 'Failed to send OTP. Please check if the server is running.');
+        setError(err.response?.data?.error || 'Failed to send OTP. Please try again.');
       }
     } finally {
       setLoading(false);
@@ -87,7 +93,11 @@ const PhoneLogin = ({ onSwitchToEmail }) => {
           </p>
           
           <form onSubmit={handleVerifyOTP} className="auth-form">
-            {error && <div className="error-message">{error}</div>}
+            {error && (
+              <div className={error.includes('✅') ? 'success-message' : 'error-message'}>
+                {error}
+              </div>
+            )}
             
             <input
               type="text"
@@ -106,12 +116,11 @@ const PhoneLogin = ({ onSwitchToEmail }) => {
           </form>
           
           <div className="otp-help">
-            <p><strong>📱 Where is my OTP?</strong></p>
-            <p>Check the terminal/command prompt where you started the app.</p>
-            <p>Look for: <code>📱 OTP for {phone}: XXXXXX</code></p>
-            <p>Enter the 6-digit number shown there.</p>
-            <p><strong>⚠️ OTP Not Working?</strong></p>
-            <p>Try <strong>Email Login</strong> instead - it's more reliable!</p>
+            <p><strong>📱 OTP Sent!</strong></p>
+            <p>Check your email for the 6-digit code.</p>
+            <p><strong>⚠️ Email Not Configured?</strong></p>
+            <p>The OTP is shown above in green (TEST MODE).</p>
+            <p>Or try <strong>Email Login</strong> instead - it's more reliable!</p>
           </div>
           
           <div className="auth-actions">
