@@ -1,0 +1,148 @@
+/* Thazema Color Palette - Water Blue & Green Theme */
+
+:root {
+  /* Primary Colors - Water Blue */
+  --blue-50: #f0f9ff;
+  --blue-100: #e0f2fe;
+  --blue-200: #bae6fd;
+  --blue-300: #7dd3fc;
+  --blue-400: #38bdf8;
+  --blue-500: #0ea5e9;
+  --blue-600: #0284c7;
+  --blue-700: #0369a1;
+  --blue-800: #075985;
+  --blue-900: #0c4a6e;
+
+  /* Secondary Colors - Green */
+  --green-50: #f0fdf4;
+  --green-100: #dcfce7;
+  --green-200: #bbf7d0;
+  --green-300: #86efac;
+  --green-400: #4ade80;
+  --green-500: #10b981;
+  --green-600: #059669;
+  --green-700: #047857;
+  --green-800: #065f46;
+  --green-900: #064e3b;
+
+  /* Accent Colors - Teal/Cyan */
+  --teal-50: #f0fdfa;
+  --teal-100: #ccfbf1;
+  --teal-200: #99f6e4;
+  --teal-300: #5eead4;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --teal-700: #0f766e;
+  --teal-800: #115e59;
+  --teal-900: #134e4a;
+
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-600: #0891b2;
+
+  /* Status Colors */
+  --success: #10b981;
+  --success-light: #34d399;
+  --success-dark: #059669;
+
+  --danger: #ef4444;
+  --danger-light: #f87171;
+  --danger-dark: #dc2626;
+
+  --warning: #f59e0b;
+  --warning-light: #fbbf24;
+  --warning-dark: #d97706;
+
+  --info: #0ea5e9;
+  --info-light: #38bdf8;
+  --info-dark: #0284c7;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
+  --gradient-blue: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  --gradient-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-teal: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+  --gradient-ocean: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 50%, #10b981 100%);
+  --gradient-water: linear-gradient(180deg, #0ea5e9 0%, #06b6d4 50%, #10b981 100%);
+
+  /* Background Colors */
+  --bg-dark: #0f0f0f;
+  --bg-darker: #0a0a0a;
+  --bg-card: #1a1a1a;
+  --bg-hover: #2a2a2a;
+  --bg-active: #333333;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #6b7280;
+  --text-muted: #4b5563;
+
+  /* Border Colors */
+  --border: #333333;
+  --border-light: #404040;
+  --border-dark: #262626;
+
+  /* Shadow Colors */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 12px 36px rgba(0, 0, 0, 0.4);
+  
+  --shadow-blue: 0 4px 12px rgba(14, 165, 233, 0.3);
+  --shadow-blue-lg: 0 8px 24px rgba(14, 165, 233, 0.4);
+  --shadow-green: 0 4px 12px rgba(16, 185, 129, 0.3);
+  --shadow-green-lg: 0 8px 24px rgba(16, 185, 129, 0.4);
+  --shadow-teal: 0 4px 12px rgba(20, 184, 166, 0.3);
+
+  /* Overlay Colors */
+  --overlay-dark: rgba(0, 0, 0, 0.8);
+  --overlay-darker: rgba(0, 0, 0, 0.9);
+  --overlay-light: rgba(255, 255, 255, 0.1);
+
+  /* Glass Effect */
+  --glass-bg: rgba(26, 26, 26, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Color Utility Classes */
+.text-primary { color: var(--primary); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
+.text-warning { color: var(--warning); }
+.text-info { color: var(--info); }
+
+.bg-primary { background: var(--primary); }
+.bg-success { background: var(--success); }
+.bg-danger { background: var(--danger); }
+.bg-warning { background: var(--warning); }
+
+.bg-gradient-primary { background: var(--gradient-primary); }
+.bg-gradient-blue { background: var(--gradient-blue); }
+.bg-gradient-green { background: var(--gradient-green); }
+.bg-gradient-ocean { background: var(--gradient-ocean); }
+
+.border-primary { border-color: var(--primary); }
+.border-success { border-color: var(--success); }
+.border-danger { border-color: var(--danger); }
+
+/* Status Indicators */
+.status-online {
+  background: var(--success);
+  box-shadow: 0 0 12px var(--success);
+}
+
+.status-offline {
+  background: var(--text-secondary);
+}
+
+.status-busy {
+  background: var(--danger);
+  box-shadow: 0 0 12px var(--danger);
+}
+
+.status-away {
+  background: var(--warning);
+  box-shadow: 0 0 12px var(--warning);
+}

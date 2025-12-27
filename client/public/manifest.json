@@ -1,0 +1,69 @@
+{
+  "name": "Thazema - Video & Audio Calls",
+  "short_name": "Thazema",
+  "description": "Connect with friends through high-quality video and audio calls with location-based discovery",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0ea5e9",
+  "background_color": "#0f0f0f",
+  "categories": ["social", "communication"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile-1.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Chat interface with stories"
+    },
+    {
+      "src": "screenshot-mobile-2.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Video call interface"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Call",
+      "short_name": "Call",
+      "description": "Start a new video or audio call",
+      "url": "/dashboard?tab=home",
+      "icons": [
+        {
+          "src": "shortcut-call.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Discover",
+      "short_name": "Discover",
+      "description": "Find trending content and nearby users",
+      "url": "/dashboard?tab=discover",
+      "icons": [
+        {
+          "src": "shortcut-discover.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

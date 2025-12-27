@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Thazema</string>
+    <string name="title_activity_main">Thazema</string>
+    <string name="package_name">com.thazema.app</string>
+    <string name="custom_url_scheme">com.thazema.app</string>
+</resources>

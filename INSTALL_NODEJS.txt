@@ -1,0 +1,87 @@
+========================================
+  INSTALL NODE.JS FIRST
+========================================
+
+You need to install Node.js before running Thazema.
+
+STEP 1: Download Node.js
+-------------------------
+1. Open your web browser
+2. Go to: https://nodejs.org/
+3. Click the big green button that says "LTS" (Long Term Support)
+4. Save the file (it will be named something like node-v18.17.0-x64.msi)
+
+STEP 2: Install Node.js
+------------------------
+1. Find the downloaded file (usually in Downloads folder)
+2. Double-click to run the installer
+3. Click "Next" on the welcome screen
+4. Click "I accept" on the license agreement
+5. Click "Next" to use default installation location
+6. Click "Next" to install all features
+7. IMPORTANT: Make sure "Automatically install necessary tools" is checked
+8. Click "Install"
+9. Wait for installation to complete (may take a few minutes)
+10. Click "Finish"
+
+STEP 3: Verify Installation
+----------------------------
+1. Close any open Command Prompt or PowerShell windows
+2. Open a NEW Command Prompt or PowerShell
+3. Type: node --version
+4. Press Enter
+5. You should see something like: v18.17.0
+
+If you see a version number, Node.js is installed correctly!
+
+STEP 4: Install MongoDB
+------------------------
+1. Go to: https://www.mongodb.com/try/download/community
+2. Download MongoDB Community Server
+3. Run the installer
+4. Choose "Complete" installation
+5. Check "Install MongoDB as a Service"
+6. Check "Install MongoDB Compass"
+7. Click Install
+
+STEP 5: Start MongoDB
+----------------------
+Open Command Prompt as Administrator and run:
+net start MongoDB
+
+STEP 6: Install Thazema
+------------------------
+Now you can run the installation commands:
+
+1. Open Command Prompt or PowerShell
+2. Navigate to project folder:
+   cd "C:\Users\Hp\websyit project"
+
+3. Run these commands one by one:
+   npm install
+   cd client
+   npm install
+   cd ..
+   npm run db:setup
+   npm run db:seed
+   npm run dev
+
+STEP 7: Open Application
+-------------------------
+Open your web browser and go to:
+http://localhost:3000
+
+Login with:
+Email: abebemesfin53@gmail.com
+Password: admin123
+
+========================================
+  NEED HELP?
+========================================
+
+Contact Administrator:
+Name: Abebe
+Email: abebemesfin53@gmail.com
+Phone: +251 914 319 513
+
+========================================

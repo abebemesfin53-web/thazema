@@ -1,0 +1,170 @@
+.phone-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--gradient-primary);
+  padding: 1rem;
+}
+
+.phone-login-card {
+  background: var(--bg-card);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.phone-input-container {
+  display: flex;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.phone-input-container:focus-within {
+  border-color: var(--primary);
+}
+
+.country-code {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1rem;
+  background: var(--bg-hover);
+  border-right: 1px solid var(--border);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.flag-icon {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.phone-input {
+  flex: 1;
+  border: none !important;
+  border-radius: 0 !important;
+  background: var(--bg-dark) !important;
+}
+
+.otp-input {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.auth-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.link-button:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.admin-contact {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.admin-contact p {
+  margin: 0.25rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.admin-contact p:first-child {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.admin-contact strong {
+  color: var(--primary);
+}
+
+.troubleshooting-note {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+}
+
+.troubleshooting-note p {
+  color: var(--danger) !important;
+  font-size: 0.75rem;
+  margin: 0.25rem 0;
+}
+
+.troubleshooting-note p:first-child {
+  font-weight: 600;
+  color: var(--danger) !important;
+}
+
+.otp-help {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.otp-help p {
+  color: var(--text-primary) !important;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+}
+
+.otp-help p:first-child {
+  font-weight: 600;
+  color: var(--primary) !important;
+}
+
+.otp-help code {
+  background: var(--bg-dark);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: var(--success);
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .phone-login-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .country-code {
+    padding: 0.75rem;
+  }
+  
+  .otp-input {
+    font-size: 1.25rem;
+    letter-spacing: 0.25rem;
+  }
+}
